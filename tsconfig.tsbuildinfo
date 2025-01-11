@@ -1,1 +1,1 @@
-{"root":["./src/index.ts"],"version":"5.7.3"}
+{"root":["./src/index.ts","./src/config/db.ts","./src/controllers/cryptocontroller.ts","./src/model/cryptoprice.ts","./src/routes/cryptoroutes.ts","./src/services/coingeckoservice.ts","./src/services/cryptoservice.ts"],"version":"5.7.3"}

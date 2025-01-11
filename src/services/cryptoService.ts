@@ -8,13 +8,14 @@ export async function updateCryptoPrices(): Promise<void> {
   try {
     for (const coin of SUPPORTED_COINS) {
       const data = await getCoinData(coin);
+      // console.log("data aya",data);
       await cryptoPrice.create({
         coin,
         priceUSD: data.priceUSD,
         marketCapUSD: data.marketCapUSD,
         change24h: data.change24h,
       });
-    //   logger.info(`Updated price data for ${coin}`);
+    //   console.log(`Updated price data for ${coin}`);
     }
   } catch (error) {
     // logger.error("Error updating crypto prices:", error);
@@ -27,6 +28,8 @@ export async function getLatestStats(
 ): Promise<ICryptoPrice | null> {
   return cryptoPrice.findOne({ coin }).sort({ timestamp: -1 });
 }
+
+
 
 export async function calculatePriceDeviation(coin: string): Promise<number> {
   const prices = await cryptoPrice.find({ coin })
